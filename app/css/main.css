@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Mallanna';
+    src: url('../fnt/Mallanna-Regular.ttf') format('truetype');
+}
+
+@property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 219deg;
+}
+
+html{
+    font-family: 'Mallanna', Arial, Helvetica, sans-serif;
+}
+body{
+    background: linear-gradient(var(--a), #1649CB 10.94%, #8452AB 77.7%);
+    animation-name: rotate;
+    animation-timing-function: linear;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-play-state: paused;
+}
+
+@keyframes rotate {
+    from {
+        --a: 219deg;
+    }
+    to {
+        --a: 579deg;
+    }
+}
