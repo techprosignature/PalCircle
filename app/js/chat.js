@@ -4,7 +4,7 @@ let textinput = document.getElementById("textinput");
 let characterinput = document.getElementById("characterinput");
 let messagecontainer = document.getElementById("message-container");
 let chats = [];
-let lastUser = null, lastMinute = -6, lastHour;
+let lastUser = "Unknown", lastMinute = -6, lastHour;
 
 // Handle message entering
 function enterMessage() {
@@ -76,7 +76,7 @@ function onboard() {
             HTMLmessage.innerText = chats[i].msg;
         }
         catch (e) {
-            console.log("Corrupted database");
+            console.log("Outdated database");
             localStorage.clear();
         }
         if (chats[i].min >= lastMinute + 5 || chats[i].hr != lastHour || chats[i].usr != lastUser) {
@@ -90,8 +90,14 @@ function onboard() {
         if(chats[i].usr != lastUser || chats[i].usr == null){
             let HTMLuser = document.createElement("div");
             HTMLuser.className = "chat-profile";
-            HTMLuser.innerText = chats[i].usr.substring(0,1);
-            characterinput.innerText = chats[i].usr.substring(0,1);
+            try{
+                HTMLuser.innerText = chats[i].usr.substring(0,1);
+                characterinput.innerText = chats[i].usr.substring(0,1);
+            }
+            catch(e){
+                console.log("Outdated database");
+                localStorage.clear();
+            }
             messagecontainer.insertAdjacentElement("beforeend", HTMLuser);
             lastUser = chats[i].usr;
         }

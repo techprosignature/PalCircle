@@ -3,10 +3,10 @@
  <g class="layer">
   <title>Layer 1</title>
   <g id="svg_3">
-   <line fill="none" id="back" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="80" y1="60" y2="100"/>
-   <line fill="none" id="back" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="80" y1="140" y2="100"/>
-   <line fill="none" id="front" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="160" y1="60" y2="100"/>
-   <line fill="none" id="front" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="160" y1="140" y2="100"/>
+   <line fill="none" id="back" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="80" y1="55" y2="100"/>
+   <line fill="none" id="back" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="80" y1="145" y2="100"/>
+   <line fill="none" id="front" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="160" y1="55" y2="100"/>
+   <line fill="none" id="front" stroke="#fff" stroke-linecap="round" stroke-width="5" x1="60" x2="160" y1="145" y2="100"/>
   </g>
  </g>
 </svg>
