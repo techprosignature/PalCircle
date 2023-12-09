@@ -2,19 +2,37 @@
 <html lang="en">
 
 <head>
-    <title>TechPro PalCircle</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>TechPro Connect</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/background.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 
 <body>
-    <img id="background" src="img/green_background_blurred.jpg" alt="background">
-    <div class="container">
-        <h1>Welcome to PalCircle</h1>
-        <h2>A place to let the different parts of you roam free</h2>
-        <a href="app/index.html">Let's Begin</a>
+    <div id="menu">
+        <button title="Settings" id="settings"></button>
+        <button title="Add chat" id="add-chat"></button>
+        <button title="Menu" id="burger"></button>
+        <div id="profile-pic"></div>
+        <span id="profile-name">Unknown User</span>
+        <ul id="chat-list">
+            <li class="sel"><span>Journal</span><button></button></li>
+        </ul>
     </div>
+    <div id="chat-container">
+        <div id="message-container">
+
+        </div>
+        <div id="input">
+            <span id="textinput" contenteditable=""></span>
+            <button id="textsubmit"></button>
+            <button id="characterinput"></button>
+        </div>
+    </div>
+    <script src="js/chat.js"></script>
 </body>
 
 </html>
