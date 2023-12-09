@@ -10,7 +10,10 @@ let lastUser = "Unknown", lastMinute = -6, lastHour;
 function enterMessage() {
     let msg = textinput.innerText;
     textinput.innerText = "";
+    // Make sure message isn't empty
     if (msg !== "") {
+
+        // Update user if necessary
         let user;
         if (msg.indexOf(':') != -1) {
             user = msg.split(':', 2)[0];
@@ -19,6 +22,8 @@ function enterMessage() {
         else {
             user = lastUser;
         }
+
+        // Add time if ncessary
         let date = new Date();
         if (date.getHours() != lastHour || date.getMinutes() >= lastMinute + 5 || user != lastUser) {
             lastHour = date.getHours();
@@ -28,8 +33,8 @@ function enterMessage() {
             HTMLtime.className = "chat-time";
             HTMLtime.innerText = `${user}, ${timeString}`;
             messagecontainer.insertAdjacentElement("beforeend", HTMLtime);
-        }
-        if(user != lastUser || user == null){
+
+            // Add user profile
             let HTMLuser = document.createElement("div");
             HTMLuser.className = "chat-profile";
             HTMLuser.innerText = user.substring(0,1);
@@ -37,6 +42,8 @@ function enterMessage() {
             messagecontainer.insertAdjacentElement("beforeend", HTMLuser);
             lastUser = user;
         }
+
+        // Add chat bubble
         let HTMLmessage = document.createElement("div");
         HTMLmessage.className = "chat-bubble";
         HTMLmessage.innerText = msg;
@@ -47,7 +54,7 @@ function enterMessage() {
 }
 
 // Attach event listeners
-textsubmit.addEventListener('click', enterMessage());
+textsubmit.addEventListener('click', enterMessage);
 textinput.addEventListener('keydown', function (e) {
     switch (e.key) {
         case "Enter":
@@ -59,19 +66,22 @@ textinput.addEventListener('keydown', function (e) {
     }
 });
 
+// Load previously stored messages
 function onboard() {
+
+    // Initialize storage
     try {
         chats = JSON.parse(localStorage.getItem("chat")).chats;
     }
     catch (e) {
         chats = [];
     }
-    console.log(localStorage.getItem("chat"));
     lastMinute = -6;
     lastHour = -6;
     for (let i = 0; i < chats.length; i++) {
+        // Create message
         let HTMLmessage = document.createElement("div");
-        HTMLmessage.className = "chat-bubble";
+        HTMLmessage.className = "chat-bubble preloaded";
         try {
             HTMLmessage.innerText = chats[i].msg;
         }
@@ -84,12 +94,10 @@ function onboard() {
             lastHour = chats[i].hr;
             let HTMLtime = document.createElement("div");
             HTMLtime.innerText = `${chats[i].usr}, ${lastHour > 12 ? lastHour - 12 : lastHour}:${lastMinute >= 10 ? lastMinute : "0" + lastMinute} ${lastHour >= 12 ? 'PM' : 'AM'}`;
-            HTMLtime.className = "chat-time";
+            HTMLtime.className = "chat-time preloaded";
             messagecontainer.insertAdjacentElement("beforeend", HTMLtime);
-        }
-        if(chats[i].usr != lastUser || chats[i].usr == null){
             let HTMLuser = document.createElement("div");
-            HTMLuser.className = "chat-profile";
+            HTMLuser.className = "chat-profile preloaded";
             try{
                 HTMLuser.innerText = chats[i].usr.substring(0,1);
                 characterinput.innerText = chats[i].usr.substring(0,1);
@@ -103,5 +111,6 @@ function onboard() {
         }
         messagecontainer.insertAdjacentElement("beforeend", HTMLmessage).scrollIntoView();
     }
+    console.log(messagecontainer.scrollHeight);
 }
 document.addEventListener('load', onboard());

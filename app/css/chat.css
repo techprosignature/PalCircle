@@ -16,6 +16,7 @@
     bottom: 90px;
     top: 10px;
     width: 100%;
+    height: calc(100% - 100px);
     margin: auto;
 }
 #message-container::-webkit-scrollbar{
@@ -46,7 +47,6 @@
     width: Calc(100% - 180px);
     min-height: 44px;
     left: 0;
-    border-radius: 20px;
     border: none !important;
     outline: none;
     cursor: text;
@@ -54,11 +54,11 @@
     padding-top: 13px;
     padding-bottom: 13px;
     padding-right: 20px;
-    font-size: 16px;
     border-radius: 35px;
     background: rgba(150, 150, 150, 0.46);
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: rgba(232, 232, 232, 0.654);
     font-family: 'Mallanna';
     font-size: 22px;
@@ -132,12 +132,10 @@
     max-width: 100%;
     overflow-wrap: anywhere;
     transition: 0.2s;
-    opacity: 0;
     border-radius: 26px;
     background: rgba(82, 88, 243, 0.63);
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
-    animation: fadeIn 0.2s linear forwards;
     color: #D3D3D3;
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
     font-family: 'Mallanna';
@@ -151,12 +149,20 @@
     background: rgba(82, 87, 243, 0.983);
 }
 
+.chat-bubble:not(.preloaded){
+    opacity: 0;
+    animation: fadeIn 0.2s linear forwards;
+}
+
 .chat-time {
     color: rgba(196, 196, 196, 0.71);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     font-family: Mallanna;
     font-size: small;
     margin-left: calc(20% + 10px);
+}
+
+.chat-time:not(.preloaded){
     opacity: 0;
     animation: fadeIn 0.2s linear forwards;
 }
@@ -170,13 +176,16 @@
     background: rgba(109, 186, 211, 0.32);
     box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(20px);
-    opacity: 0;
-    animation: fadeIn 0.2s linear forwards;
     font-size: 30px;
     line-height: 49.5px;
     text-align: center;
     color: rgb(189, 189, 189);
     cursor: default;
+}
+
+.chat-profile:not(.preloaded){
+    opacity: 0;
+    animation: fadeIn 0.2s linear forwards;
 }
 
 @keyframes fadeIn {
