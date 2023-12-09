@@ -3,16 +3,17 @@
     src: url('../fnt/Mallanna-Regular.ttf') format('truetype');
 }
 
-@property --a{
+@property --a {
     syntax: '<angle>';
     inherits: false;
     initial-value: 219deg;
 }
 
-html{
+html {
     font-family: 'Mallanna', Arial, Helvetica, sans-serif;
 }
-body{
+
+body {
     background: linear-gradient(var(--a), #1649CB 10.94%, #8452AB 77.7%);
     animation-name: rotate;
     animation-timing-function: linear;
@@ -21,10 +22,41 @@ body{
     animation-play-state: paused;
 }
 
+/* Chat container */
+#chat-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+#menu:hover+#chat-container, #menu:focus+#chat-container {
+    left: 250px;
+}
+
+#menu{
+    z-index: 2;
+    position: absolute;
+    visibility: hidden;
+}
+
+/* Enable nav:hover in production */
+#menu:hover, #menu:focus {
+    visibility: visible;
+    width: 250px;
+    height: 100%;
+    background: rgba(228, 64, 255, 0.29);
+    box-shadow: 8px 0px 19px -4px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(15px);
+}
+
 @keyframes rotate {
     from {
         --a: 219deg;
     }
+
     to {
         --a: 579deg;
     }

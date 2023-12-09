@@ -1,0 +1,132 @@
+#menu #burger,
+#menu #settings,
+#menu #add-chat {
+    background: url("../img/menu.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    border: none;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    cursor: pointer;
+    opacity: 0.5;
+    z-index: 2;
+    outline: none;
+}
+
+#menu #burger {
+    visibility: visible;
+    transition: 0.2s;
+}
+
+#menu #settings {
+    background-image: url("../img/settings.svg");
+}
+
+#menu #add-chat {
+    background-image: url("../img/plus.svg");
+    left: 107.5px;
+}
+
+#menu:hover #settings,
+#menu:hover #add-chat {
+    transition: 0.2s;
+}
+
+#menu #burger:hover,
+#menu #settings:hover,
+#menu #add-chat:hover {
+    opacity: 1;
+}
+
+/* Enable nav:hover in production */
+#menu:hover #burger {
+    left: 200px;
+}
+
+#menu #profile-pic {
+    width: 150px;
+    background: white;
+    height: 150px;
+    border-radius: 75px;
+    margin-left: 50px;
+    margin-top: 75px;
+    background: rgba(109, 186, 211, 0.32);
+    backdrop-filter: blur(20px);
+    cursor: default;
+}
+
+#menu #profile-name {
+    color: #D3D3D3;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+    cursor: default;
+}
+
+#menu #chat-list {
+    list-style: none;
+    color: #D3D3D3;
+    font-size: 25px;
+    padding-inline-start: 0px;
+    margin-top: 50px;
+    cursor: default;
+}
+
+#menu #chat-list li {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 40px;
+    height: 60px;
+    line-height: 60px;
+    transition-duration: 0.2s;
+    transition-property: background;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+#menu #chat-list li:hover{
+    background: rgba(217, 217, 217, 0.113);
+}
+
+#menu #chat-list li.sel{
+    background: rgba(217, 217, 217, 0.27);
+}
+
+#menu #chat-list li span{
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#menu #chat-list li button{
+    position: absolute;
+    right: 0;
+    background: url("../img/del.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin-top: 21px;
+    margin-right: 17.5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+#menu #chat-list li:hover button, #menu #chat-list li.sel button{
+    opacity: 0.5;
+}
+
+#menu #chat-list li:hover button:hover, #menu #chat-list li.sel button:hover{
+    opacity: 1;
+}
