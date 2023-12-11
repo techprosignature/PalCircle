@@ -57,6 +57,10 @@
     background: rgba(109, 186, 211, 0.32);
     backdrop-filter: blur(20px);
     cursor: default;
+    text-align: center;
+    line-height: 150px;
+    color: rgb(189, 189, 189);
+    font-size: 75px;
 }
 
 #menu #profile-name {

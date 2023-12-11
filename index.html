@@ -5,6 +5,7 @@
     <title>TechPro Connect</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#8452AB">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/background.css">
     <link rel="stylesheet" href="css/chat.css">
@@ -16,7 +17,7 @@
         <button title="Settings" id="settings"></button>
         <button title="Add chat" id="add-chat"></button>
         <button title="Menu" id="burger"></button>
-        <div id="profile-pic"></div>
+        <div id="profile-pic">U</div>
         <span id="profile-name">Unknown User</span>
         <ul id="chat-list">
             <li class="sel"><span>Journal</span><button></button></li>
@@ -29,7 +30,11 @@
         <div id="input">
             <span id="textinput" contenteditable=""></span>
             <button id="textsubmit"></button>
-            <button id="characterinput"></button>
+            <div id="characterinput">
+                <ul id="characterlist">
+                    <li class="sel"><div>U</div><span>Unknown User</span></li>
+                </ul>
+            </div>
         </div>
     </div>
     <script src="js/chat.js"></script>

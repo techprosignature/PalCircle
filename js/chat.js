@@ -1,7 +1,8 @@
 // Attach DOM controls
 let textsubmit = document.getElementById("textsubmit");
 let textinput = document.getElementById("textinput");
-let characterinput = document.getElementById("characterinput");
+let tempProfile = document.querySelector("#characterinput .sel div");
+let tempName = document.querySelector("#characterinput .sel span");
 let messagecontainer = document.getElementById("message-container");
 let chats = [];
 let lastUser = "Unknown", lastMinute = -6, lastHour;
@@ -38,7 +39,8 @@ function enterMessage() {
             let HTMLuser = document.createElement("div");
             HTMLuser.className = "chat-profile";
             HTMLuser.innerText = user.substring(0,1);
-            characterinput.innerText = user.substring(0,1);
+            tempProfile.innerText = user.substring(0,1);
+            tempName.innerText = user;
             messagecontainer.insertAdjacentElement("beforeend", HTMLuser);
             lastUser = user;
         }
@@ -100,7 +102,8 @@ function onboard() {
             HTMLuser.className = "chat-profile preloaded";
             try{
                 HTMLuser.innerText = chats[i].usr.substring(0,1);
-                characterinput.innerText = chats[i].usr.substring(0,1);
+                tempProfile.innerText = chats[i].usr.substring(0,1);
+                tempName.innerText = chats[i].usr;
             }
             catch(e){
                 console.log("Outdated database");
